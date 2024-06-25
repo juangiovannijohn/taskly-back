@@ -1,0 +1,35 @@
+import express from 'express'
+import cors from "cors"
+import morgen from "morgan"
+import "dotenv/config.js"
+import errorHandler from './src/middlewares/errorHandler.js'
+import notFoundPath from './src/middlewares/notFoundPath.js'
+
+const server = express()
+
+const PORT = process.env.PORT || 8080;
+const ready = ()=> console.log('server ready on port ' + PORT)
+
+server.listen(PORT,ready)
+
+//midd terceros
+server.use(express.urlencoded({extended:true})) // habilita a express a leer query y params en la url
+server.use(express.json())
+server.use(cors())
+server.use(morgen("dev"))
+
+//midd propios
+
+
+server.get('/', (req,res,next)=>{
+    try {
+        return res.json({
+            statusCode,
+            message: 'OK'
+        })
+    } catch (error) {
+        return next(error)
+    }
+})
+server.use(errorHandler);
+server.use(notFoundPath);
