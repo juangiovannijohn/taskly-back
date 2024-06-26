@@ -4,11 +4,16 @@ import morgen from "morgan"
 import "dotenv/config.js"
 import errorHandler from './src/middlewares/errorHandler.js'
 import notFoundPath from './src/middlewares/notFoundPath.js'
+import connectToMongo from './src/db/mongo.js'
 
 const server = express()
 
 const PORT = process.env.PORT || 8080;
-const ready = ()=> console.log('server ready on port ' + PORT)
+const MONGO_URI = process.env.MONGO_URI || ''
+const ready = ()=> {
+    console.log('server ready on port ' + PORT)
+    connectToMongo(MONGO_URI);
+}
 
 server.listen(PORT,ready)
 
