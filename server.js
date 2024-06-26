@@ -28,8 +28,7 @@ server.use(morgen("dev"))
 
 server.get('/', (req,res,next)=>{
     try {
-        return res.json({
-            statusCode,
+        return res.status(200).json({
             message: 'OK'
         })
     } catch (error) {
