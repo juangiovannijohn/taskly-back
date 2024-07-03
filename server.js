@@ -5,6 +5,10 @@ import "dotenv/config.js"
 import errorHandler from './src/middlewares/errorHandler.js'
 import notFoundPath from './src/middlewares/notFoundPath.js'
 import connectToMongo from './src/db/mongo.js'
+import userRouter from './src/routes/user.routes.js'
+import boardRouter from './src/routes/board.routes.js'
+import listRouter from './src/routes/list.routes.js'
+import cardRouter from './src/routes/card.routes.js'
 
 const server = express()
 
@@ -34,6 +38,18 @@ server.get('/', (req,res,next)=>{
     } catch (error) {
         return next(error)
     }
-})
+});
+
+
+//Routes
+// Rutas
+server.use('/api', userRouter);
+server.use('/api', boardRouter);
+server.use('/api', listRouter);
+server.use('/api', cardRouter);
+
+
 server.use(errorHandler);
 server.use(notFoundPath);
+
+
