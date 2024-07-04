@@ -2,8 +2,8 @@ import express from 'express'
 import cors from "cors"
 import morgen from "morgan"
 import "dotenv/config.js"
-import errorHandler from './src/middlewares/errorHandler.js'
-import notFoundPath from './src/middlewares/notFoundPath.js'
+import errorHandler from './src/middlewares/errorHandler.mid.js'
+import notFoundPath from './src/middlewares/notFoundPath.mid.js'
 import connectToMongo from './src/db/mongo.js'
 import userRouter from './src/routes/user.routes.js'
 import boardRouter from './src/routes/board.routes.js'
