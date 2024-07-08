@@ -1,35 +1,84 @@
-export const getUser = (req, res, next) => {
+import User from "../models/user.model.js";
+export const getUser = async (req, res, next) => {
     try {
-        // Lógica para obtener un usuario
-        res.status(200).json({ message: 'User fetched successfully' });
+        const data = await User.findById(req.params.id);
+        
+        if (!data) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ message: 'User fetched successfully', 
+            user : {
+                id: data._id, 
+                email: data.email, 
+                name: data.name, 
+                avatar: data.avatar,
+                age: data.age,
+                city:data.city
+            } 
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const createUser = (req, res, next) => {
+export const createUser = async (req, res, next) => {
+    const {email,password,avatar,age,name,city} = req.body
+    const newUser = {email,password,avatar,age,name,city}
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'User created successfully' });
+        const user = await User.create(newUser)
+        res.status(201).json({
+             message: 'User created successfully',
+             user: {email: user.email, name: user.name} 
+            });
     } catch (error) {
         next(error);
     }
 };
 
-export const updateUser = (req, res, next) => {
+export const updateUser = async (req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'User updated successfully' });
+        const {name, age, avatar, city} = req.body
+        const filter = { _id: req.params.id };
+        const update = { name, age, avatar, city };
+
+        const result = await User.findByIdAndUpdate(filter, update);
+
+        res.status(200).json({ message: 'User updated successfully' , user : {
+                id: result._id, 
+                email: result.email, 
+                name: result.name, 
+                avatar: result.avatar,
+                age: result.age,
+                city:result.city
+            }  });
     } catch (error) {
         next(error);
     }
 };
 
-export const deleteUser = (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'User deleted successfully' });
+        const filter = { _id: req.params.id };
+
+        const result = await User.findByIdAndDelete(filter);
+
+        res.status(200).json({ message: 'User deleted successfully' , user : {
+                id: result._id, 
+                email: result.email
+            }  });
     } catch (error) {
         next(error);
     }
 };
+
+export const login = (req, res, next)=>{
+    try {
+        return res.status(200).json({
+          message: "LOGGED IN",
+          token: req.token
+        })
+    } catch (error) {
+        next(error)
+    }
+}

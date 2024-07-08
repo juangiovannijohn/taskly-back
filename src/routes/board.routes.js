@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import { getBoards, getBoard,  createBoard, updateBoard, deleteBoard } from '../controllers/board.controller.js';
+import verifyToken from '../middlewares/verifyToken.mid.js';
 
 const router = Router();
+router.use(verifyToken);
 
 router.get('/board', getBoards)
 router.get('/board/:id', getBoard);

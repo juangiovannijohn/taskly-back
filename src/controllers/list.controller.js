@@ -1,42 +1,66 @@
-export const getLists = (req, res, next) => {
+import List from "../models/lists.model.js";
+
+export const getLists = async (req, res, next) => {
     try {
-        // Lógica para obtener un usuario
-        res.status(200).json({ message: 'List fetched successfully' });
+        const lists = await List.find();
+        res.status(200).json({ 
+            message: 'List fetched successfully',
+            lists
+    });
     } catch (error) {
         next(error);
     }
 };
 
-export const getList = (req, res, next) => {
+export const getList = async (req, res, next) => {
     try {
-        // Lógica para obtener un usuario
-        res.status(200).json({ message: 'List fetched successfully' });
+        const list = await List.findById(req.params.id)
+        res.status(200).json({ 
+            message: 'List fetched successfully',
+            list
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const createList = (req, res, next) => {
+export const createList = async (req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'List created successfully' });
+        const {title, board_id} = req.body;
+        const list = await List.create({title, board_id})
+        res.status(201).json({ 
+            message: 'List created successfully',
+            list
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const updateList = (req, res, next) => {
+export const updateList = async (req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'List updated successfully' });
+        const {title} = req.body
+        const filter = { _id: req.params.id };
+        const update = { title};
+
+        const result = await List.updateOne(filter, update);
+        console.log({result})
+        const list = await List.findById(req.params.id)
+
+        res.status(201).json({ 
+            message: 'List updated successfully',
+            list
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const deleteList = (req, res, next) => {
+export const deleteList = async (req, res, next) => {
     try {
-        // Lógica para crear un usuario
+        const filter = { _id: req.params.id };
+        const result = await List.deleteOne(filter)
+        console.log({result})
         res.status(201).json({ message: 'List deleted successfully' });
     } catch (error) {
         next(error);
