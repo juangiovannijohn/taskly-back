@@ -1,42 +1,66 @@
-export const getCards = (req, res, next) => {
+import Card from "../models/cards.model.js";
+
+export const getCards = async(req, res, next) => {
     try {
-        // Lógica para obtener un usuario
-        res.status(200).json({ message: 'Card fetched successfully' });
+        const cards = await Card.find();
+        res.status(200).json({ 
+            message: 'Cards fetched successfully',
+            cards
+    });
+} catch (error) {
+        next(error);
+    }
+};
+
+export const getCard = async(req, res, next) => {
+    try {
+        const card = await Card.findById(req.params.id)
+        res.status(200).json({ 
+            message: 'Card fetched successfully',
+            card
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const getCard = (req, res, next) => {
+export const createCard = async(req, res, next) => {
     try {
-        // Lógica para obtener un usuario
-        res.status(200).json({ message: 'Card fetched successfully' });
+        const {title,content, list_id} = req.body;
+        const card = await Card.create({title, content, list_id})
+        res.status(201).json({ 
+            message: 'Card created successfully',
+            card
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const createCard = (req, res, next) => {
+export const updateCard = async(req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'Card created successfully' });
+        const {title, content} = req.body
+        const filter = { _id: req.params.id };
+        const update = { title, content};
+
+        const result = await Card.updateOne(filter, update);
+        console.log({result})
+        const card = await Card.findById(req.params.id)
+
+        res.status(201).json({ 
+            message: 'Card updated successfully',
+            card
+        });
     } catch (error) {
         next(error);
     }
 };
 
-export const updateCard = (req, res, next) => {
+export const deleteCard = async(req, res, next) => {
     try {
-        // Lógica para crear un usuario
-        res.status(201).json({ message: 'Card updated successfully' });
-    } catch (error) {
-        next(error);
-    }
-};
-
-export const deleteCard = (req, res, next) => {
-    try {
-        // Lógica para crear un usuario
+        const filter = { _id: req.params.id };
+        const result = await Card.deleteOne(filter)
+        console.log({result})
         res.status(201).json({ message: 'Card deleted successfully' });
     } catch (error) {
         next(error);
