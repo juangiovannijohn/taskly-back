@@ -1,0 +1,939 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "RESTful API basics: CRUD, test & variable",
+    "collectionId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+    "dateExported": "2024-07-10T23:05:24.644Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-07-07T22:27:18.395Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "Boards",
+            "containerId": "",
+            "created": "2024-07-07T22:27:18.396Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "Lists",
+            "containerId": "",
+            "created": "2024-07-07T22:27:18.397Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "Cards",
+            "containerId": "",
+            "created": "2024-07-07T22:27:18.398Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "49f347f4-e2b2-4e2e-b260-372107a22061",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "getUser",
+            "url": "http://localhost:9090/api/user/667c7b6262fdfd8e12606e9d",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-07T22:27:18.395Z",
+            "modified": "2024-07-08T01:28:44.603Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7f8a3847-975e-41a8-af81-bc977af43666",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "createUser",
+            "url": "http://localhost:9090/api/user/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-07T22:27:18.396Z",
+            "modified": "2024-07-08T01:51:48.292Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "attribute",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "level",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": " {  \n   \"email\":\"hola1@gmail.com\",\n    \"password\": \"hola\",\n    \"avatar\": \"\",\n    \"age\":1,\n    \"name\": \"\",\n    \"city\": \"\"\n }",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f8c5eb6c-f8be-4da7-98fc-dad083ccf21c",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "Login",
+            "url": "http://localhost:9090/api/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-07T22:48:54.121Z",
+            "modified": "2024-07-08T01:25:48.364Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjEiLCJpYXQiOjE3MjAzOTMzMTcsImV4cCI6MTcyMDQ3OTcxN30.VfxdixeMIJ19DM5ta6Xdf-w9AB_NPw2NbLsAP3zg5Ec"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"hola@gmail.com\",\n  \"password\": \"hola\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "a34c8188-b9ad-494c-bb78-81168a3439ad",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "updateUser",
+            "url": "http://localhost:9090/api/user/667c7b6262fdfd8e12606e9c",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-07-07T22:27:18.397Z",
+            "modified": "2024-07-08T02:04:04.990Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "pageSize",
+                    "value": "3",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{   \n    \"avatar\": \"actualizado\",\n    \"age\":99,\n    \"name\": \"Juanchi\",\n    \"city\": \"Miami2\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "eaf4c8f2-be10-4e79-9490-c939c1570219",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "deleteUser",
+            "url": "http://localhost:9090/api/user/667c7b6262fdfd8e12606e9d",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-07-07T22:27:18.398Z",
+            "modified": "2024-07-08T02:05:40.911Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "ebee1e7b-074c-4403-8c70-3aef5263083d",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "getBoards",
+            "url": "http://localhost:9090/api/board",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-07-07T22:27:18.399Z",
+            "modified": "2024-07-08T02:19:41.504Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "6fccd2c4-9016-421c-acda-1a661851dc74",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "getBoard",
+            "url": "http://localhost:9090/api/board/668b4e49987932f85ca2e328",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-07-07T22:27:18.400Z",
+            "modified": "2024-07-08T02:37:31.937Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9bf81d95-1c75-4914-8121-804761fe4c00",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "createBoard",
+            "url": "http://localhost:9090/api/board/",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-07-07T22:27:18.401Z",
+            "modified": "2024-07-08T02:26:17.543Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "attribute",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "level",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"proyecto 2\",\n  \"user_id\": \"668b3dad4866c44c9aaa91c3\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "40be1b72-5b15-4fa6-aa57-6e61da1e5b42",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "updateBoard",
+            "url": "http://localhost:9090/api/board/668b4e1a987932f85ca2e325",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2024-07-07T22:27:18.402Z",
+            "modified": "2024-07-08T02:34:51.561Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "pageSize",
+                    "value": "3",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"nuevo proyecto actualizado 3\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c38ebbb0-b8bb-4904-8f3f-e0bef141f2fb",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
+            "name": "deleteBoard",
+            "url": "http://localhost:9090/api/board/668b4e49987932f85ca2e328",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-07-07T22:27:18.403Z",
+            "modified": "2024-07-08T02:37:08.907Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "979724c8-76e3-45c0-9c89-21d0822c3588",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "getLists",
+            "url": "http://localhost:9090/api/list",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-07-07T22:27:18.404Z",
+            "modified": "2024-07-10T22:50:12.140Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9402143e-7bae-49be-a3db-cbc191209f18",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "getList",
+            "url": "http://localhost:9090/api/board/1",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-07-07T22:27:18.405Z",
+            "modified": "2024-07-07T22:27:18.405Z",
+            "headers": [],
+            "preReq": {
+                "inlineScripts": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "04a81dd1-8798-4a4d-b0ef-9b3489b32bca",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "createList",
+            "url": "http://localhost:9090/api/list/",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-07-07T22:27:18.406Z",
+            "modified": "2024-07-10T22:52:46.809Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "attribute",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "level",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Backlog\",\n  \"board_id\": \"668b4e1a987932f85ca2e325\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "5606aa32-3683-4737-a146-75e1ae16f4a0",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "updateList",
+            "url": "http://localhost:9090/api/list/1",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2024-07-07T22:27:18.407Z",
+            "modified": "2024-07-07T22:27:18.407Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true
+                },
+                {
+                    "name": "pageSize",
+                    "value": "3",
+                    "isDisabled": true
+                }
+            ],
+            "preReq": {
+                "inlineScripts": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "694e51a1-e58d-4157-9cd3-36e8e15b2514",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
+            "name": "deleteList",
+            "url": "http://localhost:9090/api/list/1",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2024-07-07T22:27:18.408Z",
+            "modified": "2024-07-07T22:27:18.408Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true
+                },
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true
+                }
+            ],
+            "preReq": {
+                "inlineScripts": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "78953ebf-f0c6-4a3f-b20e-4bcb65c24648",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "getCards",
+            "url": "http://localhost:9090/api/card",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-07-07T22:27:18.409Z",
+            "modified": "2024-07-10T22:47:07.308Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "22c9c95d-63dd-4916-9389-326fc38803ae",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "getCard",
+            "url": "http://localhost:9090/api/card/668f10e7d87be1e1c10dc387",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-07-07T22:27:18.410Z",
+            "modified": "2024-07-10T23:03:02.650Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "25b2ba3b-1eee-4943-b172-52ce841d0154",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "createCard",
+            "url": "http://localhost:9090/api/card/",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-07-07T22:27:18.411Z",
+            "modified": "2024-07-10T23:04:07.651Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "attribute",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "level",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"prueba 3\",\n  \"content\": \"hola 2\",\n  \"list_id\": \"668f10bed87be1e1c10dc382\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c1cc8428-26d9-4143-8139-ebf4b0ce0ec8",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "updateCard",
+            "url": "http://localhost:9090/api/card/668f1331054a74d17fe0e858",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2024-07-07T22:27:18.412Z",
+            "modified": "2024-07-10T23:03:53.360Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "pageSize",
+                    "value": "3",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":  \"Actualizado 2\",\n  \"content\": \"chau 2\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "203feaf6-ac1f-47e4-9351-0b157c777315",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "9b7a41a5-9b67-426a-8081-81395a03837b",
+            "name": "deleteCard",
+            "url": "http://localhost:9090/api/card/668f1369054a74d17fe0e86a",
+            "method": "DELETE",
+            "sortNum": 190000,
+            "created": "2024-07-07T22:27:18.413Z",
+            "modified": "2024-07-10T23:04:25.815Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "Free",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "Hybrid",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "preReq": {
+            "inlineScripts": [
+                {
+                    "script": [
+                        ""
+                    ]
+                }
+            ]
+        },
+        "postReq": {
+            "inlineScripts": [
+                {
+                    "script": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    },
+    "ref": "Jz6eS1auyGDbTjxRW894yo3WWn9G2PUenKBcpz459AxvjU_A8hPFHQLXVZvwv61thziHXkgtAtSrr85lWpeh-A"
+}
