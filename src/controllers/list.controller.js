@@ -1,4 +1,5 @@
 import List from "../models/lists.model.js";
+import Card from "../models/cards.model.js"
 
 export const getLists = async (req, res, next) => {
     try {
@@ -14,10 +15,13 @@ export const getLists = async (req, res, next) => {
 
 export const getList = async (req, res, next) => {
     try {
-        const list = await List.findById(req.params.id)
+        const list_id = req.params.id;
+        const list = await List.findById(list_id)
+        const cards = await Card.find({list_id})
         res.status(200).json({ 
             message: 'List fetched successfully',
-            list
+            list,
+            cards
         });
     } catch (error) {
         next(error);

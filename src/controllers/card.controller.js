@@ -39,12 +39,11 @@ export const createCard = async(req, res, next) => {
 
 export const updateCard = async(req, res, next) => {
     try {
-        const {title, content} = req.body
+        const {title, content, list_id} = req.body
         const filter = { _id: req.params.id };
-        const update = { title, content};
+        const update = { title, content, list_id};
+        const result = await Card.updateOne(filter, update );
 
-        const result = await Card.updateOne(filter, update);
-        console.log({result})
         const card = await Card.findById(req.params.id)
 
         res.status(201).json({ 
@@ -60,7 +59,7 @@ export const deleteCard = async(req, res, next) => {
     try {
         const filter = { _id: req.params.id };
         const result = await Card.deleteOne(filter)
-        console.log({result})
+
         res.status(201).json({ message: 'Card deleted successfully' });
     } catch (error) {
         next(error);

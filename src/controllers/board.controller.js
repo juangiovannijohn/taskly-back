@@ -1,8 +1,10 @@
 import Board from "../models/board.model.js";
+import List from "../models/lists.model.js";
 
 export const getBoards = async(req, res, next) => {
     try {
-        const boards= await Board.find();
+        const {user_id} = req.body;
+        const boards= await Board.find({user_id: user_id});
         res.status(200).json({ 
             message: 'Board fetched successfully',
             boards
@@ -15,10 +17,12 @@ export const getBoards = async(req, res, next) => {
 export const getBoard = async (req, res, next) => {
     try {
         const board = await Board.findById(req.params.id)
+        const lists = await List.find({board_id : req.params.id})
 
         res.status(200).json({ 
             message: 'Board fetched successfully',
-            board 
+            board,
+            lists 
         });
     } catch (error) {
         next(error);

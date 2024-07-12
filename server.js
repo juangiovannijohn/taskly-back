@@ -9,6 +9,7 @@ import userRouter from './src/routes/user.routes.js'
 import boardRouter from './src/routes/board.routes.js'
 import listRouter from './src/routes/list.routes.js'
 import cardRouter from './src/routes/card.routes.js'
+import viewRouter from './src/routes/views.routes.js'
 
 const server = express()
 
@@ -47,6 +48,7 @@ server.use('/api', userRouter);
 server.use('/api', boardRouter);
 server.use('/api', listRouter);
 server.use('/api', cardRouter);
+server.use('/views', viewRouter)
 
 
 server.use(errorHandler);

@@ -1,4 +1,31 @@
 import User from "../models/user.model.js";
+
+export const getUsers = async(req, res, next) =>{
+    try {
+
+        const data = await User.find()
+        console.log(data)
+        if (!data) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const users = data.map(user =>({
+            id: user._id,
+            email: user.email,
+            name: user.name,
+            avatar: user.avatar,
+            age: user.age,
+            city: user.city
+        }));
+
+        res.status(200).json({ message: 'User fetched successfully', 
+            users 
+        });
+        
+    } catch (error) {
+        next(error);
+    }
+}
 export const getUser = async (req, res, next) => {
     try {
         const data = await User.findById(req.params.id);
