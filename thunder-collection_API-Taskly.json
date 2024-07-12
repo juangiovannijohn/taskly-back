@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "RESTful API basics: CRUD, test & variable",
     "collectionId": "3a4b12f9-a9af-4578-994d-d051948a6811",
-    "dateExported": "2024-07-10T23:05:24.644Z",
+    "dateExported": "2024-07-12T17:49:33.574Z",
     "version": "1.2",
     "folders": [
         {
@@ -32,23 +32,63 @@
             "containerId": "",
             "created": "2024-07-07T22:27:18.398Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "1de21db5-7dc6-4d62-acc6-5744570b53f4",
+            "name": "Views",
+            "containerId": "",
+            "created": "2024-07-12T14:41:06.866Z",
+            "sortNum": 50000
         }
     ],
     "requests": [
+        {
+            "_id": "3920a512-c421-4269-a3c0-645f7e13bd74",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
+            "name": "getUsers",
+            "url": "http://localhost:9090/api/user/",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2024-07-12T14:05:58.976Z",
+            "modified": "2024-07-12T14:09:00.306Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
         {
             "_id": "49f347f4-e2b2-4e2e-b260-372107a22061",
             "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
             "containerId": "42414ba4-b9ca-4bda-bf40-691ba3aba743",
             "name": "getUser",
-            "url": "http://localhost:9090/api/user/667c7b6262fdfd8e12606e9d",
+            "url": "http://localhost:9090/api/user/668b3dad4866c44c9aaa91c3",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-07-07T22:27:18.395Z",
-            "modified": "2024-07-08T01:28:44.603Z",
+            "modified": "2024-07-12T14:12:20.091Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -268,11 +308,11 @@
             "method": "GET",
             "sortNum": 50000,
             "created": "2024-07-07T22:27:18.399Z",
-            "modified": "2024-07-08T02:19:41.504Z",
+            "modified": "2024-07-12T14:12:50.630Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -280,6 +320,11 @@
                     "isDisabled": true
                 }
             ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user_id\": \"668b3dad4866c44c9aaa91c3\"\n}",
+                "form": []
+            },
             "postReq": {
                 "inlineScripts": [
                     {
@@ -297,15 +342,15 @@
             "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
             "containerId": "8106f16b-3b91-470f-9723-3fb160af7720",
             "name": "getBoard",
-            "url": "http://localhost:9090/api/board/668b4e49987932f85ca2e328",
+            "url": "http://localhost:9090/api/board/668b4e1a987932f85ca2e325",
             "method": "GET",
             "sortNum": 60000,
             "created": "2024-07-07T22:27:18.400Z",
-            "modified": "2024-07-08T02:37:31.937Z",
+            "modified": "2024-07-12T14:19:01.027Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAxOTQ4LCJleHAiOjE3MjA0ODgzNDh9.ZFFEhbV07mekbWGwR1EqmNBCP60-k2K3rQAoE4FJ2RE"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -497,11 +542,11 @@
             "method": "GET",
             "sortNum": 100000,
             "created": "2024-07-07T22:27:18.404Z",
-            "modified": "2024-07-10T22:50:12.140Z",
+            "modified": "2024-07-12T13:39:17.244Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -526,15 +571,22 @@
             "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
             "containerId": "0481789e-3382-4fa5-9078-acf586dabe12",
             "name": "getList",
-            "url": "http://localhost:9090/api/board/1",
+            "url": "http://localhost:9090/api/list/668f10bed87be1e1c10dc382",
             "method": "GET",
             "sortNum": 110000,
             "created": "2024-07-07T22:27:18.405Z",
-            "modified": "2024-07-07T22:27:18.405Z",
-            "headers": [],
-            "preReq": {
-                "inlineScripts": []
-            },
+            "modified": "2024-07-12T14:25:48.826Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
             "postReq": {
                 "inlineScripts": [
                     {
@@ -556,11 +608,11 @@
             "method": "POST",
             "sortNum": 120000,
             "created": "2024-07-07T22:27:18.406Z",
-            "modified": "2024-07-10T22:52:46.809Z",
+            "modified": "2024-07-12T13:40:11.666Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -584,7 +636,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"title\": \"Backlog\",\n  \"board_id\": \"668b4e1a987932f85ca2e325\"\n}",
+                "raw": "{\n  \"title\": \"testing\",\n  \"board_id\": \"668b4e1a987932f85ca2e325\"\n}",
                 "form": []
             },
             "postReq": {
@@ -694,11 +746,44 @@
             "method": "GET",
             "sortNum": 150000,
             "created": "2024-07-07T22:27:18.409Z",
-            "modified": "2024-07-10T22:47:07.308Z",
+            "modified": "2024-07-12T13:40:45.934Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "75f674d1-c04e-4ddc-bb08-3865d260c1cb",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "1de21db5-7dc6-4d62-acc6-5744570b53f4",
+            "name": "getUserBoard",
+            "url": "http://localhost:9090/views/user-board/668b4e1a987932f85ca2e325",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-07-12T14:41:06.866Z",
+            "modified": "2024-07-12T14:45:55.306Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -732,6 +817,39 @@
                 {
                     "name": "token",
                     "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "38bf0cd3-0d11-44dc-9b45-8271e6041b14",
+            "colId": "3a4b12f9-a9af-4578-994d-d051948a6811",
+            "containerId": "1de21db5-7dc6-4d62-acc6-5744570b53f4",
+            "name": "getNavBar",
+            "url": "http://localhost:9090/views/nav-bar/668b3dad4866c44c9aaa91c3",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-07-12T17:43:42.263Z",
+            "modified": "2024-07-12T17:44:27.046Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -812,11 +930,11 @@
             "method": "PUT",
             "sortNum": 180000,
             "created": "2024-07-07T22:27:18.412Z",
-            "modified": "2024-07-10T23:03:53.360Z",
+            "modified": "2024-07-12T13:43:36.970Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNjUxNTU5LCJleHAiOjE3MjA3Mzc5NTl9.YtaV_K1FYGJ1eaQN4AdbmwhOmswWR9tdPhf_qAGDMlI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbGFAZ21haWwuY29tIiwiaWF0IjoxNzIwNzkxMzYyLCJleHAiOjE3MjA4Nzc3NjJ9.AEuEtbYs3gUT6apuIDRJocXHTbsTRvfQHIZ84w616yo"
                 },
                 {
                     "name": "User-Agent",
@@ -846,7 +964,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"title\":  \"Actualizado 2\",\n  \"content\": \"chau 2\"\n}",
+                "raw": "{\n  \"title\":  \"Actualizado 2\",\n  \"content\": \"chau 2\",\n  \"list_id\": \"669132214e71666f61a3737b\"\n}",
                 "form": []
             },
             "postReq": {
@@ -935,5 +1053,5 @@
             ]
         }
     },
-    "ref": "Jz6eS1auyGDbTjxRW894yo3WWn9G2PUenKBcpz459AxvjU_A8hPFHQLXVZvwv61thziHXkgtAtSrr85lWpeh-A"
+    "ref": "Jz6eS1auyGDbTjxRW894yo8zUm2_ELV5js9HJn2QpKSZA4sntVnU6bVRz85pszJwhslhcujFmlMTGi3bJ35iVA"
 }
