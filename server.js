@@ -48,7 +48,7 @@ server.use('/api', userRouter);
 server.use('/api', boardRouter);
 server.use('/api', listRouter);
 server.use('/api', cardRouter);
-server.use('/views', viewRouter)
+server.use('/views', viewRouter);
 
 
 server.use(errorHandler);
